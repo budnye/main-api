@@ -73,12 +73,13 @@ class ClientController {
     }
 
     // Salva as alterações no cliente
-    const { id, name } = await client.update(req.body);
+    const { id, name, birth } = await client.update(req.body);
 
     return res.json({
       id,
       name,
       email,
+      birth,
     });
   }
 

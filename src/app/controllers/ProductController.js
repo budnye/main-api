@@ -8,7 +8,13 @@ class ProductController {
 
     return res.status(200).json(products);
   }
-
+  async get(req, res) {
+    const product = await Product.findByPk(req.params.id);
+    if (!product) {
+      return res.status(400).json({ error: 'Invalid product id' });
+    }
+    return res.status(200).json(product);
+  }
   async store(req, res) {
     // Valida os dados do body request
     const schema = Yup.object().shape({

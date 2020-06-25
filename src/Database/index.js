@@ -1,10 +1,10 @@
 import Sequelize from 'sequelize';
-
 import databaseConfig from '../config/database';
-
 import Client from '../app/models/Client';
+import Product from '../app/models/Product';
 
-const models = [Client];
+//Carrega os models
+const models = [Client, Product];
 
 class Database {
   constructor() {

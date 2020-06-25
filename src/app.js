@@ -1,6 +1,7 @@
 import express from 'express';
 import routes from './routes';
 import morgan from 'morgan';
+import cors from 'cors';
 
 import './database';
 
@@ -14,6 +15,7 @@ class App {
   }
 
   middlewares() {
+    this.server.use(cors());
     this.server.use(express.json());
     this.server.use(morgan('dev'));
   }
@@ -27,7 +29,7 @@ class App {
       const error = new Error('Not found');
       error.status = 404;
       next(error);
-    })
+    });
 
     this.server.use((error, req, res, next) => {
       res.status(error.status || 500);
@@ -36,7 +38,7 @@ class App {
           message: error.message
         }
       });
-    })
+    });
   }
 }
 

@@ -9,6 +9,14 @@ class ClientController {
     return res.status(200).json(clients);
   }
 
+  async get(req, res) {
+    const client = await Client.findByPk(req.params.id);
+    if (!client) {
+      return res.status(400).json({ error: 'Invalid client id.' })
+    }
+    return res.status(200).json(client);
+  }
+
   async store(req, res) {
     // Valida os dados do body request
     const schema = Yup.object().shape({
@@ -43,10 +51,12 @@ class ClientController {
   }
 
   async update(req, res) {
+    // Busca o cliente através do id
     const client = await Client.findByPk(req.params.id);
     if (!client) {
-      return res.status(404).json({ error: 'Invalid client id.' })
+      return res.status(404).json({ error: 'Invalid client id.' });
     }
+
     // Valida os dados do body request
     const schema = Yup.object().shape({
       name: Yup.string().required(),
@@ -87,12 +97,12 @@ class ClientController {
     const client = await Client.findByPk(req.params.id);
 
     if (!client) {
-      return res.status(404).json({ error: 'Client not found.' })
+      return res.status(404).json({ error: 'Client not found.' });
     }
 
     await client.destroy().then(client => {
       if (client === 1) {
-        return res.status(401).json({ error: 'Client wasnt deleted' })
+        return res.status(401).json({ error: 'Client wasnt deleted' });
       } else {
         return res.status(200).json({ message: 'The client was deleted.' });
       }

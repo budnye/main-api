@@ -2,11 +2,14 @@ import * as Yup from 'yup';
 import Client from '../models/Client';
 
 class ClientController {
+  test() {
+    return '123';
+  }
   // Retorna a lista de clientes
   async index(req, res) {
     const clients = await Client.findAll();
 
-    return res.status(200).json(clients);
+    return res.status(200).json(this.test());
   }
 
   async get(req, res) {

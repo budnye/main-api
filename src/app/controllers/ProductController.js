@@ -19,8 +19,7 @@ class ProductController {
     // Valida os dados do body request
     const schema = Yup.object().shape({
       name: Yup.string().required(),
-      infor: Yup.string()
-        .email(),
+      info: Yup.string(),
       price: Yup.number()
         .required(),
       qnt: Yup.number()
@@ -33,9 +32,10 @@ class ProductController {
     }
 
     // Salva o registro do produto
-    const { name, info, price, qnt } = await Product.create(req.body);
+    const { id, name, info, price, qnt } = await Product.create(req.body);
 
     return res.status(201).json({
+      id,
       name,
       info,
       price,
@@ -67,9 +67,10 @@ class ProductController {
     }
 
     // Salva as alterações no produto
-    const { name, info, price, qnt } = await product.update(req.body);
+    const { id, name, info, price, qnt } = await product.update(req.body);
 
     return res.status(200).json({
+      id,
       name,
       info,
       price,

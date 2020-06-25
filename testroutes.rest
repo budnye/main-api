@@ -1,0 +1,54 @@
+### List Clients
+GET http://localhost:3000/clients HTTP/1.1
+
+### Create Client
+POST http://localhost:3000/clients HTTP/1.1
+content-type: application/json
+
+{
+	"name": "Teste Client",
+	"email": "clienttest@gmail.com",
+	"birth": "01-01-1990"
+}
+
+### Update Client
+PUT http://localhost:3000/clients/4 HTTP/1.1
+content-type: application/json
+
+{
+	"name": "Budny Teste",
+	"email": "budnytest@gmail.com",
+	"birth": "01-10-1989"
+}
+
+### Delete Client
+DELETE http://localhost:3000/clients/1 HTTP/1.1
+
+
+### List Products
+GET http://localhost:3000/products HTTP/1.1
+
+### Create Product
+POST http://localhost:3000/products HTTP/1.1
+content-type: application/json
+
+{
+	"name": "Kit Banheiro",
+	"info": "Kit completo para banho",
+	"price": "37.90",
+	"qnt": "20",
+}
+
+### Update Product
+PUT http://localhost:3000/products/8 HTTP/1.1
+content-type: application/json
+
+{
+	"name": "Kit Banheiro",
+	"info": "Kit completo para banho",
+	"price": "37.90",
+	"qnt": "15"
+}
+
+### Delete Client
+DELETE http://localhost:3000/products/4 HTTP/1.1

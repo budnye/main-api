@@ -9,7 +9,7 @@ class ClientController {
   async index(req, res) {
     const clients = await Client.findAll();
 
-    return res.status(200).json(this.test());
+    return res.status(200).json(clients);
   }
 
   async get(req, res) {

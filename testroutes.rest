@@ -7,7 +7,7 @@ content-type: application/json
 
 {
 	"name": "Teste Client",
-	"email": "clienttest@gmail.com",
+	"email": "clienttest2@gmail.com",
 	"birth": "01-01-1990"
 }
 

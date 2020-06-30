@@ -4,7 +4,11 @@ import Product from '../models/Product';
 class ProductController {
   // Retorna a lista de produtos
   async index(req, res) {
-    const products = await Product.findAll();
+    const products = await Product.findAll({
+      order: [
+        ['id', 'DESC']
+      ]
+    });
 
     return res.status(200).json(products);
   }

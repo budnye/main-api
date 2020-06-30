@@ -2,12 +2,13 @@ import * as Yup from 'yup';
 import Client from '../models/Client';
 
 class ClientController {
-  test() {
-    return '123';
-  }
   // Retorna a lista de clientes
   async index(req, res) {
-    const clients = await Client.findAll();
+    const clients = await Client.findAll({
+      order: [
+        ['id', 'DESC']
+      ]
+    });
 
     return res.status(200).json(clients);
   }
@@ -45,7 +46,7 @@ class ClientController {
     // Salva o registro do cliente
     const { id, name, email, birth } = await Client.create(req.body);
 
-    return res.json({
+    return res.status(201).json({
       id,
       name,
       email,
@@ -88,7 +89,7 @@ class ClientController {
     // Salva as alterações no cliente
     const { id, name, birth } = await client.update(req.body);
 
-    return res.json({
+    return res.status(200).json({
       id,
       name,
       email,

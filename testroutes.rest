@@ -22,7 +22,7 @@ content-type: application/json
 }
 
 ### Delete Client
-DELETE http://localhost:3000/clients/1 HTTP/1.1
+DELETE http://localhost:3000/clients/4 HTTP/1.1
 
 
 ### List Products
@@ -36,11 +36,11 @@ content-type: application/json
 	"name": "Kit Banheiro",
 	"info": "Kit completo para banho",
 	"price": "37.90",
-	"qnt": "20",
+	"qnt": "20"
 }
 
 ### Update Product
-PUT http://localhost:3000/products/8 HTTP/1.1
+PUT http://localhost:3000/products/19 HTTP/1.1
 content-type: application/json
 
 {
@@ -50,5 +50,5 @@ content-type: application/json
 	"qnt": "15"
 }
 
-### Delete Client
-DELETE http://localhost:3000/products/4 HTTP/1.1
+### Delete Product
+DELETE http://localhost:3000/products/19 HTTP/1.1
